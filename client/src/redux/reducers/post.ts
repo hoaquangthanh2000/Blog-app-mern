@@ -1,20 +1,20 @@
 import { INIT_STATE } from "../../constant";
-import { getPosts, getType } from "./../actions/index";
+import { getPosts, getTypeAction } from "../actions/index";
 
 export default function postReducers(state = INIT_STATE.posts, action: any) {
   switch (action.type) {
-    case getType(getPosts.getPostsRequest()): // case 'getPostRequest'
+    case getTypeAction(getPosts.getPostsRequest()): // case 'getPostRequest'
       return {
         ...state,
         isLoading: true,
       };
-    case getType(getPosts.getPostSuccess()):
+    case getTypeAction(getPosts.getPostSuccess()):
       return {
         ...state,
         isLoading: false,
         data: action.payload,
       };
-    case getType(getPosts.getPostFailure()):
+    case getTypeAction(getPosts.getPostFailure()):
       return {
         ...state,
         isLoading: false,

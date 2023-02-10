@@ -12,6 +12,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(reducers, applyMiddleware(sagaMiddleware));
 
+export type RootState = ReturnType<typeof store.getState>;
 sagaMiddleware.run(mySaga);
 
 const root = ReactDOM.createRoot(

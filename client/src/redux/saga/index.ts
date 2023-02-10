@@ -3,9 +3,9 @@ import * as actions from "../actions";
 import * as api from "../../api";
 
 function* fetchPostSaga(action: any): Generator<any> {
-  const posts = yield call(api.fetchPosts);
+  const posts: any = yield call(api.fetchPosts);
   console.log("[posts]", posts);
-  yield put(actions.getPosts.getPostSuccess(posts));
+  yield put(actions.getPosts.getPostSuccess(posts.data));
 }
 
 function* mySaga() {
